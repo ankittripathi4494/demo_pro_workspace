@@ -1,3 +1,4 @@
+import 'package:demoproapp/image_list.dart';
 import 'package:flutter/material.dart';
 
 class PageNotFoundImageWidget extends StatelessWidget {
@@ -7,8 +8,6 @@ class PageNotFoundImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.asset("resources/images/no_data.avif"),
-    );
+    return Center(child: Image.asset(ImageList.pageNotFound, width: 200, height: 200,));
   }
 }

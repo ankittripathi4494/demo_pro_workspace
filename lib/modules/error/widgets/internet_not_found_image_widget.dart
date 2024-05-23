@@ -1,3 +1,4 @@
+import 'package:demoproapp/image_list.dart';
 import 'package:flutter/material.dart';
 
 class InternetNotFoundImageWidget extends StatelessWidget {
@@ -7,6 +8,6 @@ class InternetNotFoundImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: FlutterLogo(size: 200,),);
+    return Center(child: Image.asset(ImageList.noInternet, width: 200, height: 200,));
   }
 }
