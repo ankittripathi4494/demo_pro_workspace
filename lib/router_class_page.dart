@@ -1,3 +1,4 @@
+import 'package:demoproapp/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:demoproapp/modules/error/screens/internet_not_found_screen.dart';
 import 'package:demoproapp/modules/login/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,12 @@ class RouterClass {
           duration: Duration.zero,
           type: PageTransitionType.fade,
           child: const LoginScreen(),
+        );
+      case '/dashboard':
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: const DashboardScreen(),
         );
       case '/noInternet':
         return PageTransition(
