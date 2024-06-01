@@ -1,13 +1,17 @@
+import 'package:demoproapp/modules/crud_with_db_without_singleton/screens/update_screen.dart';
 import 'package:demoproapp/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:demoproapp/modules/error/screens/internet_not_found_screen.dart';
 import 'package:demoproapp/modules/login/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'modules/crud_with_db_without_singleton/screens/create_screen.dart';
+import 'modules/crud_with_db_without_singleton/screens/read_screen.dart';
 import 'modules/error/screens/page_not_found_screen.dart';
 import 'modules/splash/screens/splash_screen.dart';
 
 class RouterClass {
   static Route<dynamic> generateRouter(RouteSettings settings) {
+    var arguments = settings.arguments;
     switch (settings.name) {
       case '/':
         return PageTransition(
@@ -26,6 +30,57 @@ class RouterClass {
           duration: Duration.zero,
           type: PageTransitionType.fade,
           child: const DashboardScreen(),
+        );
+      case '/crud1/create':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: CreateScreenCrudDBOne(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: CreateScreenCrudDBOne(
+            args: const {},
+          ),
+        );
+      case '/crud1/read':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: ReadScreenCrudDBOne(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: ReadScreenCrudDBOne(
+            args: const {},
+          ),
+        );
+      case '/crud1/update':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: UpdateScreenCrudDBOne(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: UpdateScreenCrudDBOne(
+            args: const {},
+          ),
         );
       case '/noInternet':
         return PageTransition(
