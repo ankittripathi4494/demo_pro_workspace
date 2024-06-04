@@ -4,6 +4,9 @@ import 'package:demoproapp/modules/error/screens/internet_not_found_screen.dart'
 import 'package:demoproapp/modules/login/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'modules/crud_with_db_with_singleton/screens/create_screen.dart';
+import 'modules/crud_with_db_with_singleton/screens/read_screen.dart';
+import 'modules/crud_with_db_with_singleton/screens/update_screen.dart';
 import 'modules/crud_with_db_without_singleton/screens/create_screen.dart';
 import 'modules/crud_with_db_without_singleton/screens/read_screen.dart';
 import 'modules/error/screens/page_not_found_screen.dart';
@@ -79,6 +82,57 @@ class RouterClass {
           duration: Duration.zero,
           type: PageTransitionType.fade,
           child: UpdateScreenCrudDBOne(
+            args: const {},
+          ),
+        );
+      case '/crud2/create':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: CreateScreenCrudDBTwo(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: CreateScreenCrudDBTwo(
+            args: const {},
+          ),
+        );
+      case '/crud2/read':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: ReadScreenCrudDBTwo(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: ReadScreenCrudDBTwo(
+            args: const {},
+          ),
+        );
+      case '/crud2/update':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: UpdateScreenCrudDBTwo(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: UpdateScreenCrudDBTwo(
             args: const {},
           ),
         );

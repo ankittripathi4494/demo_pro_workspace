@@ -34,6 +34,20 @@ class MyDrawer {
               ),
             ],
           ),
+          ExpansionTile(
+            title: const Text("Crud With database with singleton"),
+            leading: const Icon(Icons.home),
+            children: [
+              
+              ListTile(
+                onTap: () async {
+                  Navigator.pushReplacementNamed(context, '/crud2/read', arguments: {"title":"Student List"});
+                },
+                title: const Text("Crud 2 List"),
+                leading: const Icon(Icons.list),
+              ),
+            ],
+          ),
           ListTile(
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
