@@ -1,5 +1,1 @@
-enum InternetState {
-  internelInitial,
-  internelAvailable,
-  internelNotAvailable,
-}
+enum InternetState { internetInitial, internetAvailable, internetLost }
