@@ -1,3 +1,4 @@
+import 'package:demoproapp/modules/login/login_bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,9 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
+      // register here all your blocs and cubits in application
       providers: [
         BlocProvider<InternetCubit>(
           create: (context) => InternetCubit(),
+        ),
+        BlocProvider<LoginBloc>(
+          create: (context) => LoginBloc(),
         ),
       ],
       child: const MaterialApp(

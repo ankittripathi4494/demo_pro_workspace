@@ -48,6 +48,20 @@ class MyDrawer {
               ),
             ],
           ),
+          ExpansionTile(
+            title: const Text("User Group List"),
+            leading: const Icon(Icons.home),
+            children: [
+              
+              ListTile(
+                onTap: () async {
+                  Navigator.pushReplacementNamed(context, '/crudApi/read', arguments: {"title":"User Group List"});
+                },
+                title: const Text("User Group List"),
+                leading: const Icon(Icons.list),
+              ),
+            ],
+          ),
           ListTile(
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();

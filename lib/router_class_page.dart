@@ -1,8 +1,11 @@
+import 'package:demoproapp/modules/crud_with_api_with_bloc/screens/user_group_list.dart';
 import 'package:demoproapp/modules/crud_with_db_without_singleton/screens/update_screen.dart';
 import 'package:demoproapp/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:demoproapp/modules/error/screens/internet_not_found_screen.dart';
+import 'package:demoproapp/modules/login/login_bloc/login_bloc.dart';
 import 'package:demoproapp/modules/login/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'modules/crud_with_db_with_singleton/screens/create_screen.dart';
 import 'modules/crud_with_db_with_singleton/screens/read_screen.dart';
@@ -26,7 +29,10 @@ class RouterClass {
         return PageTransition(
           duration: Duration.zero,
           type: PageTransitionType.fade,
-          child: const LoginScreen(),
+          child: BlocProvider(
+            create: (context) => LoginBloc(),
+            child: const LoginScreen(),
+          ),
         );
       case '/dashboard':
         return PageTransition(
@@ -119,6 +125,7 @@ class RouterClass {
             args: const {},
           ),
         );
+      
       case '/crud2/update':
         if (arguments is Map<String, dynamic>) {
           return PageTransition(
@@ -136,6 +143,24 @@ class RouterClass {
             args: const {},
           ),
         );
+      case '/crudApi/read':
+        if (arguments is Map<String, dynamic>) {
+          return PageTransition(
+            duration: Duration.zero,
+            type: PageTransitionType.fade,
+            child: UserGroupList(
+              args: arguments,
+            ),
+          );
+        }
+        return PageTransition(
+          duration: Duration.zero,
+          type: PageTransitionType.fade,
+          child: UserGroupList(
+            args: const {},
+          ),
+        );
+      
       case '/noInternet':
         return PageTransition(
           duration: Duration.zero,
